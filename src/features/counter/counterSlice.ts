@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../app/store';
+import { RootState, AppThunk } from '../../redux/store';
 import { fetchCount } from './counterAPI';
 
 export interface CounterState {
@@ -20,9 +20,10 @@ const initialState: CounterState = {
 export const incrementAsync = createAsyncThunk(
   'counter/fetchCount',
   async (amount: number) => {
-    const response = await fetchCount(amount);
+    const response = await fetch("https://api.github.com/repos/YoussefWilliam/graphQL-firebase");
+    const data = await response.json();
+    console.log("my data:::", data);
     // The value we return becomes the `fulfilled` action payload
-    return response.data;
   }
 );
 
@@ -55,7 +56,6 @@ export const counterSlice = createSlice({
       })
       .addCase(incrementAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.value += action.payload;
       });
   },
 });
