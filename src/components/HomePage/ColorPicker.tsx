@@ -13,7 +13,7 @@ const ColorPicker: React.FC<Props> = ({ setColorSelected, title }) => {
       <h2 className="max-w-sm mx-auto md:w-1/3">{title}</h2>
       <div className="max-w-sm mx-auto space-y-5 md:w-2/3">
         <div>
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-4">
             {colorLibrary.map((color) => {
               const { id, name, className } = color || {};
               return (
