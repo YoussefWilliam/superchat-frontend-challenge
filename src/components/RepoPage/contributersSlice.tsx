@@ -10,7 +10,14 @@ export const fetchContributes = createAsyncThunk(
   "repos/fetchContributes",
   async ({username, reponame}: {username: string, reponame: string}) => {
     let githubAPILink = process.env.REACT_APP_GITHUB_API;
-    const response = await fetch(`${githubAPILink}/repos/${username}/${reponame}/contributors`);
+    const response = await fetch(
+      `${githubAPILink}/repos/${username}/${reponame}/contributors`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const data = await response.json();
     return data;
   }
