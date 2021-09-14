@@ -8,15 +8,10 @@ const initialState: DataInterface = {
 
 export const fetchContributes = createAsyncThunk(
   "repos/fetchContributes",
-  async ({username, reponame}: {username: string, reponame: string}) => {
+  async ({ username, reponame }: { username: string; reponame: string }) => {
     let githubAPILink = process.env.REACT_APP_GITHUB_API;
     const response = await fetch(
-      `${githubAPILink}/repos/${username}/${reponame}/contributors`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+      `${githubAPILink}/repos/${username}/${reponame}/contributors`
     );
     const data = await response.json();
     return data;
@@ -42,7 +37,8 @@ export const contributorsDetailsSlice = createSlice({
   },
 });
 
-export const contributorsDetailsInfo = (state: any) => state.contributorsDetails;
+export const contributorsDetailsInfo = (state: any) =>
+  state.contributorsDetails;
 
 const contributorsDetailsReducer = contributorsDetailsSlice.reducer;
 export default contributorsDetailsReducer;
