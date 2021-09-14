@@ -2,6 +2,7 @@
   "name": "superchat-frontend-challenge",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://api.github.com",
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^4.2.4",
