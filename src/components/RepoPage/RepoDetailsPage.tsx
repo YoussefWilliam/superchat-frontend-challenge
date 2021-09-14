@@ -85,7 +85,7 @@ const RepoDetails: React.FC = () => {
           <div className="w-full border-b md:w-1/2 md:border-r md:border-b-0 lg:w-1/3 lg:border-b-0 p-8">
             <ImageContainer imageSelected={imageSelected} />
           </div>
-          <div className="w-full md:w-1/2 lg:w-1/3 p-8">
+          <div className="w-full md:w-1/2 lg:w-1/3 p-4">
             <Contributers
               title={repoPage.CONTRIBUTERS}
               username={username}
